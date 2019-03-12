@@ -1,4 +1,13 @@
 <resources>
     <string name="app_name">Projet_integration</string>
     <string name="inscription">inscription</string>
+    <string name="title_activity_file_actualite">file_actualite</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="textview">TextView</string>
+    <string name="date_publication">date8publication</string>
+    <string name="Date_publication">Date_publication</string>
 </resources>

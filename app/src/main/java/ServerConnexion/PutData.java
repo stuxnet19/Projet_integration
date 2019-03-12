@@ -8,6 +8,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 
 public class PutData {
     private static PutData instance = new PutData();
@@ -16,19 +17,11 @@ public class PutData {
     public static PutData getInstance() {
         return instance;
     }
-    private static HashMap<String,String> prepareRequestStringInscription(String mail,String nom,String prenom,String mdp){
-        HashMap<String,String> request = new HashMap<>();
-        request.put("mail",mail);
-        request.put("nom",nom);
-        request.put("prenom",prenom);
-        request.put("mdp",mdp);
-        return request ;
-    }
+
     public static String connecte(HashMap<String,String> information,String connexionType,String stringUrl){
         try {
 
             URL url = new URL(stringUrl);
-
             // get an urlconnectionobject from the URL object
             HttpURLConnection con = (HttpURLConnection)url.openConnection();
             con.setRequestMethod("POST");
@@ -38,25 +31,21 @@ public class PutData {
 
             // get an outputstream from the connexion
             DataOutputStream out = new DataOutputStream(con.getOutputStream());
-            switch (connexionType){
-                case "inscription" : {
-                    String nom = information.get("nom");
-                    String prenom = information.get("prenom");
-                    String mail = information.get("mail");
-                    String mdp = information.get("mdp");
-                    out.writeBytes(ParameterStringBuilder.getParamsString(prepareRequestStringInscription(mail,nom,prenom,mdp)));
-                }
-            }
+            out.writeBytes(ParameterStringBuilder.getParamsString(information));
+
             // force bytes to be writen
             out.flush();
             out.close();
             //
+
             BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
             String inputLine ;
             StringBuffer content = new StringBuffer();
+
             while((inputLine = in.readLine())!=null){
                 content.append(inputLine);
             }
+
             in.close();
             con.disconnect();
             return content.toString();
@@ -67,6 +56,5 @@ public class PutData {
             e.printStackTrace();
         }
         return null ;
-
     }
 }

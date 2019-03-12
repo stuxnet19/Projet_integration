@@ -7,6 +7,8 @@ import java.util.HashMap;
  */
 
 public class Professionnels {
+
+
     public HashMap<String,String> informations ;
     private String civilite ;
     private String nom ;
@@ -25,6 +27,10 @@ public class Professionnels {
     private Boolean confirme ;
     private String mot_de_passe ;
 
+
+    public Professionnels(HashMap<String,String> informations){
+        setupInformations(informations);
+    }
     public String getCivilite() {
         return civilite;
     }
@@ -153,15 +159,29 @@ public class Professionnels {
         this.civilite = civilite;
     }
 
-    public Professionnels(HashMap<String,String> informations){
-        this.informations = informations ;
-    }
-
     public HashMap<String, String> getInformations() {
         return informations;
     }
 
     public void setInformations(HashMap<String, String> informations) {
         this.informations = informations;
+    }
+    public void setupInformations(HashMap<String,String> informations){
+        if (informations.get("civilite")!=null)setCivilite(informations.get("civilite"));
+        if (informations.get("nom")!=null)setNom(informations.get("nom"));
+        if (informations.get("prenom")!=null)setPrenom(informations.get("prenom"));
+        if (informations.get("profession")!=null)setProfession(informations.get("profession"));
+        if (informations.get("mode_exercice")!=null)setMode_exercice(informations.get("mode_exercice"));
+        if (informations.get("site")!=null)setSite(informations.get("site"));
+        if (informations.get("num_voie")!=null)setNum_voie(Integer.valueOf(informations.get("num_voie")));
+        if (informations.get("type_voie")!=null)setType_voie(informations.get("type_voie"));
+        if (informations.get("nom_voie")!=null)setNom_voie(informations.get("nom_voie"));
+        if (informations.get("code_postale")!=null)setCode_postale(Integer.valueOf(informations.get("code_postale")));
+        if (informations.get("comune")!=null)setComune(informations.get("comune"));
+        if (informations.get("Tel1")!=null)setTel1(informations.get("Tel1"));
+        if (informations.get("Tel2")!=null)setTel2(informations.get("Tel2"));
+        if (informations.get("mail")!=null)setMail(informations.get("mail"));
+        if (informations.get("confirme")!=null)setConfirme(Boolean.valueOf(informations.get("confirme")));
+        if (informations.get("mot_de_passe")!=null)setMot_de_passe(informations.get("mot_de_passe"));
     }
 }

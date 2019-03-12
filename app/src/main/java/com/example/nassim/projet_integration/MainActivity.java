@@ -1,14 +1,18 @@
 package com.example.nassim.projet_integration;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     public Button home_inscription ;
     public Button home_connexion ;
+    SharedPreferences sharedPreferences ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,5 +34,13 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        // ouvrire la page d'accueil si la session est deja ouverte
+        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this.getApplicationContext());
+        String data = sharedPreferences.getString("data","test");
+        if (data != "test") {
+            Intent intent = new Intent(this,Accueil.class);
+            Toast.makeText(this,data,Toast.LENGTH_LONG).show();
+            startActivity(intent);
+        }
     }
 }

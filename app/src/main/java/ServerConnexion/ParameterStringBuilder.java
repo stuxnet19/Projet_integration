@@ -1,5 +1,7 @@
 package ServerConnexion;
 
+import android.util.Log;
+
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.Map;

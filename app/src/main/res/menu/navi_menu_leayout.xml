@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/homeMenuId"
+        android:title="Actualité"
+        android:icon="@drawable/actualite"
+        />
+    <item
+        android:id="@+id/profileMenuId"
+        android:title="Profile"
+        android:icon="@drawable/profile"
+        />
+    <item
+        android:id="@+id/Options"
+        android:title="Options"
+        android:icon="@drawable/settings"
+        />
+    <item
+        android:id="@+id/post"
+        android:title="Poster"
+        android:icon="@drawable/publier"
+        />
+    <item
+        android:id="@+id/disconnect"
+        android:title="déconexion"
+        android:icon="@drawable/disconnecte"
+        />
+</menu>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent" android:layout_height="match_parent" android:padding="10dp" >
+
+    <ImageView android:id="@+id/image_publication" android:layout_width="100dp" android:layout_height="100dp" tools:background="#AAA" />
+
+    <TextView android:id="@+id/pseudo" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textColor="@android:color/white"
+        android:textStyle="bold" tools:text="Pseudo"
+        android:layout_alignParentTop="true"
+        android:layout_alignLeft="@+id/titre_id"
+        android:layout_alignStart="@+id/titre_id" />
+
+    <TextView android:id="@+id/text_publication" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textColor="@android:color/white"
+        tools:text="Texte de ma publication"
+        android:layout_below="@+id/titre_id"
+        android:layout_alignLeft="@+id/titre_id"
+        android:layout_alignStart="@+id/titre_id" />
+
+    <TextView
+        android:id="@+id/date_publication_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Date_publication"
+        android:layout_below="@+id/image_publication"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:id="@+id/titre_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/pseudo"
+        android:layout_toEndOf="@+id/date_publication_id"
+        android:layout_toRightOf="@+id/date_publication_id"
+        android:text="titre" />
+
+</RelativeLayout>
