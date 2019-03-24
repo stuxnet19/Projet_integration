@@ -27,10 +27,10 @@
         <activity
             android:name=".Accueil"
             android:parentActivityName=".MainActivity" />
-        <activity android:name=".Actualite_activity"
-            android:parentActivityName=".Accueil"
-            >
-        </activity>
+        <activity
+            android:name=".Actualite_activity"
+            android:parentActivityName=".Accueil" />
+        <activity android:name=".Commentaires"></activity>
     </application>
 
 </manifest>

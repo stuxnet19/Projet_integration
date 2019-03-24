@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent" android:layout_height="match_parent" android:padding="10dp" >
+
+    <TextView android:id="@+id/pseudo_commentaire" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textColor="@android:color/white"
+        android:textStyle="bold" tools:text="Pseudo"
+        android:layout_alignParentTop="true"
+        android:layout_alignLeft="@+id/titre_id"
+        android:layout_alignStart="@+id/titre_id" />
+
+    <TextView
+        android:id="@+id/date_commentaire"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/image_publication"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginStart="167dp"
+        android:layout_marginLeft="167dp"
+        android:text="@string/Date_publication_commentaire" />
+
+    <TextView
+        android:id="@+id/text_commentaire"
+        android:layout_width="371dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/date_commentaire"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="28dp"
+        android:text="@string/text_commentaire" />
+
+
+</RelativeLayout>

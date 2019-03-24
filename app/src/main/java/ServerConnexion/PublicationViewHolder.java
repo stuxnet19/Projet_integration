@@ -1,6 +1,7 @@
 package ServerConnexion;
 
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 /**
@@ -8,8 +9,8 @@ import android.widget.TextView;
  */
 
 public class PublicationViewHolder {
-    public View image ;
+    public ImageView image ;
     public TextView pseudo ;
     public TextView titre ;
-    public TextView text ;
+    public TextView date_pub;
 }

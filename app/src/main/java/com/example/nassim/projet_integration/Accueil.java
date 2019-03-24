@@ -23,11 +23,11 @@ public class Accueil extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_accueil);
 
-        actualiteButton = (Button)findViewById(R.id.actualite);
-        publierButton = (Button)findViewById(R.id.publier);
-        myPublicationsButton = (Button)findViewById(R.id.my_publications);
-        myProfileButton = (Button)findViewById(R.id.my_profile);
-        disconnectButton = (Button)findViewById(R.id.disconnect_app);
+        actualiteButton = findViewById(R.id.actualite);
+        publierButton = findViewById(R.id.publier);
+        myPublicationsButton = findViewById(R.id.my_publications);
+        myProfileButton = findViewById(R.id.my_profile);
+        disconnectButton = findViewById(R.id.disconnect_app);
 
         actualiteButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -39,7 +39,6 @@ public class Accueil extends AppCompatActivity {
         publierButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
             }
         });
         myPublicationsButton.setOnClickListener(new View.OnClickListener() {
@@ -67,7 +66,6 @@ public class Accueil extends AppCompatActivity {
                finish();
             }
         });
-
     }
     @Override
     public void onBackPressed() {
