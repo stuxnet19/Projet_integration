@@ -45,6 +45,7 @@ public class Publication_adapter extends ArrayAdapter<Publication>{
         viewHolder.pseudo.setText(publication.getPseudo());
         viewHolder.date_pub.setText(publication.getDate_pub());
         viewHolder.image.setImageBitmap(publication.image);
+
         return convertView ;
     }
 }

@@ -85,12 +85,14 @@ public class Publication {
         HashMap<String,String> information = new HashMap<>();
 
         // get  String from bitmap object
-        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        Bitmap bm = image;
-        bm.compress(Bitmap.CompressFormat.PNG, 100, baos); //bm is the bitmap object
-        byte[] b = baos.toByteArray();
-        String encodedImage = Base64.encodeToString(b, Base64.DEFAULT);
-        information.put("image",encodedImage);
+        if (image!=null){
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            Bitmap bm = image;
+            bm.compress(Bitmap.CompressFormat.PNG, 100, baos); //bm is the bitmap object
+            byte[] b = baos.toByteArray();
+            String encodedImage = Base64.encodeToString(b, Base64.DEFAULT);
+            information.put("image",encodedImage);
+        }
         information.put("pseudo",pseudo);
         information.put("titre",titre);
         information.put("date_pub",date_pub);

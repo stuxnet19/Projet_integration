@@ -39,7 +39,6 @@ public class MainActivity extends AppCompatActivity {
         String data = sharedPreferences.getString("data","test");
         if (data != "test") {
             Intent intent = new Intent(this,Accueil.class);
-            Toast.makeText(this,data,Toast.LENGTH_LONG).show();
             startActivity(intent);
         }
     }

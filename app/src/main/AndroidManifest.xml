@@ -30,7 +30,15 @@
         <activity
             android:name=".Actualite_activity"
             android:parentActivityName=".Accueil" />
-        <activity android:name=".Commentaires"></activity>
+        <activity
+            android:name=".Commentaires"
+            android:parentActivityName=".Actualite_activity" />
+        <activity
+            android:name=".MakeComment"
+            android:parentActivityName=".Commentaires" />
+        <activity android:name=".Publier" />
+        <activity android:name=".ImageFull" />
+        <activity android:name=".MyDiscussions"></activity>
     </application>
 
 </manifest>

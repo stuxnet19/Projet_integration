@@ -39,12 +39,15 @@ public class Accueil extends AppCompatActivity {
         publierButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent intent = new Intent(Accueil.this,Publier.class);
+                startActivity(intent);
             }
         });
         myPublicationsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent = new Intent(Accueil.this,MyDiscussions.class);
+                startActivity(intent);
             }
         });
         myProfileButton.setOnClickListener(new View.OnClickListener() {

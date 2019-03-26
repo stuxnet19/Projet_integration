@@ -25,7 +25,6 @@ public class PutData {
             // get an urlconnectionobject from the URL object
             HttpURLConnection con = (HttpURLConnection)url.openConnection();
             con.setRequestMethod("POST");
-
             //set the output capability on the URL Connection
             con.setDoOutput(true);
 

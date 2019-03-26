@@ -7,6 +7,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.preference.PreferenceManager;
+import android.text.Html;
 import android.util.Base64;
 import android.util.Log;
 import android.view.View;
@@ -29,6 +30,11 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.ByteArrayOutputStream;
+import java.io.UnsupportedEncodingException;
+import java.nio.ByteBuffer;
+import java.nio.CharBuffer;
+import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -45,6 +51,8 @@ public class Connect extends AsyncTask<Void,Integer,Void> {
     public ListView listView ;
     public String webServiceFolder ;
     SharedPreferences sharedPreferences ;
+    public static final Charset ISO_8859_1 = Charset.forName("ISO-8859-1");
+    public static final Charset UTF_8 = Charset.forName("UTF-8");
 
     public Connect(Context context, HashMap<String,String> informations, String connexionType,String ip,String webServiceFolder){
         this.connexionType = connexionType ;
@@ -95,24 +103,36 @@ public class Connect extends AsyncTask<Void,Integer,Void> {
     @Override
     protected void onPostExecute(Void aVoid) {
         switch (connexionType){
-
+            case "share" : {
+                Toast.makeText(context,"publication effectué ",Toast.LENGTH_LONG).show();
+            }
+            break ;
+            case "make_comment" : {
+                Toast.makeText(context,"commentaite publié ",Toast.LENGTH_LONG).show();
+            }
+            break ;
             case "commentaire" : {
-
-                if ((requestPut != null)&&(requestPut!="0")){
                     try{
+                        List<Comment> commentaires ;
                         Intent intent = ((Activity) context).getIntent();
                         String contenu = intent.getStringExtra("contenu");
                         String pseudo = intent.getStringExtra("pseudo");
                         String date_pub = intent.getStringExtra("date_pub");
-                        JSONArray jsonArray = new JSONArray(requestPut);
-                        final List<Comment> commentaires = genererCommentaires(jsonArray,pseudo,contenu,date_pub);
-                        Comment_adapter adapter = new Comment_adapter (context,commentaires);
+
+                        if (!requestPut.equals("0")) {
+                            JSONArray jsonArray = new JSONArray(requestPut);
+                            commentaires = genererCommentaires(jsonArray, pseudo, contenu, date_pub);
+                        }
+                        else{
+                            commentaires = genererCommentaires(pseudo, contenu, date_pub);
+                        }
+                        Comment_adapter adapter = new Comment_adapter(context, commentaires);
                         listView.setAdapter(adapter);
 
                     } catch (JSONException e){
                         e.printStackTrace();
                     }
-                }
+
             }
             break ;
             case "actualite" : {
@@ -132,6 +152,7 @@ public class Connect extends AsyncTask<Void,Integer,Void> {
                                 intent.putExtra("contenu",value.getPublicationHashMap(value).get("contenu"));
                                 intent.putExtra("pseudo",value.getPublicationHashMap(value).get("pseudo"));
                                 intent.putExtra("date_pub",value.getPublicationHashMap(value).get("date_pub"));
+                                intent.putExtra("photo",value.getPublicationHashMap(value).get("image"));
                                 context.startActivity(intent);
                             }
                         });
@@ -183,10 +204,14 @@ public class Connect extends AsyncTask<Void,Integer,Void> {
         }
         super.onPostExecute(aVoid);
     }
+
+    private List<Comment> genererCommentaires(String pseudo,String contenu,String date_pub){
+        List<Comment> commentairesList = new ArrayList<>();
+        commentairesList.add(new Comment(pseudo,date_pub,contenu));
+        return commentairesList ;
+    }
     private List<Comment> genererCommentaires(JSONArray jsonArray,String pseudo,String contenu,String date_pub){
         List<Comment> commentairesList = new ArrayList<>();
-        byte[] decodeString ;
-        Bitmap decodeByte ;
         String date_comment ;
         String text_comment ;
         commentairesList.add(new Comment(pseudo,date_pub,contenu));
@@ -196,17 +221,18 @@ public class Connect extends AsyncTask<Void,Integer,Void> {
                 pseudo = (String) jsonObject.get("nom")+" "+jsonObject.get("prenom");
                 date_comment = (String) jsonObject.get("date_com");
                 text_comment = (String) jsonObject.get("contenu");
+                text_comment = new String(text_comment.getBytes("ISO-8859-1"), "UTF-8");
                 Comment commmentaire = new Comment(pseudo,date_comment,text_comment);
                 commentairesList.add(commmentaire) ;
             }
         }
         catch (JSONException e){
             e.printStackTrace();
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
         }
-
         return commentairesList ;
     }
-
     private List<Publication> genererPublications(JSONArray jsonArray){
         List<Publication> publications = new ArrayList<Publication>();
         byte[] decodeString ;
@@ -244,13 +270,22 @@ public class Connect extends AsyncTask<Void,Integer,Void> {
                 date_pub = (String)jsonObject.get("date_pub");
                 publication_id = (String)jsonObject.get("id_pub");
                 contenu = (String)jsonObject.get("contenu");
+
+
+                titre = new String(titre.getBytes("ISO-8859-1"), "UTF-8");
+                contenu = new String(contenu.getBytes("ISO-8859-1"), "UTF-8");
+
                 Publication publication = new Publication(contenu,decodeByte,pseudo,titre,date_pub,publication_id);
                 publications.add(publication);
 
             }
         } catch (JSONException e) {
             e.printStackTrace();
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
         }
         return publications;
     }
+    
+
 }

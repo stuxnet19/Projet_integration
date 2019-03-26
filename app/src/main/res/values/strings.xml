@@ -11,9 +11,18 @@
     <string name="date_publication">date8publication</string>
     <string name="Date_publication">Date_publication</string>
     <string name="image_publication">image publication</string>
-    <string name="todo">TODO</string>
     <string name="Date_publication_commentaire">Date_publication_commentaire</string>
     <string name="text_commentaire">text_commentaire</string>
     <string name="commenter">Commenter</string>
     <string name="visualier_la_photo">visualier la photo</string>
+    <string name="publier">Publier</string>
+    <string name="nouvelle_publication">Nouvelle publication</string>
+    <string name="contenu">Contenu</string>
+    <string name="photo">Photo</string>
+    <string name="todo">TODO</string>
+    <string name="titre">Titre :</string>
+    <string name="commenter2">commenter</string>
+    <string name="ecrire_les_commentaire">ecrire les commentaire</string>
+    <string name="prendre_une_photo">prendre une photo</string>
+    <string name="ajouter_une_photo">ajouter une photo</string>
 </resources>
