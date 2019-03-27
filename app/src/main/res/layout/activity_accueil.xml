@@ -57,7 +57,7 @@
             android:layout_width="368dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.15"
-            android:text="mon profile"
+            android:text="mes commentaires"
             android:textAlignment="center"
             android:textColor="@color/colorAccent"
             tools:ignore="DuplicateIds,HardcodedText"

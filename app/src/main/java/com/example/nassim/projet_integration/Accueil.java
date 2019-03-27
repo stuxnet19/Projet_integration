@@ -53,7 +53,8 @@ public class Accueil extends AppCompatActivity {
         myProfileButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent = new Intent(Accueil.this,MyComments.class);
+                startActivity(intent);
             }
         });
         disconnectButton.setOnClickListener(new View.OnClickListener() {

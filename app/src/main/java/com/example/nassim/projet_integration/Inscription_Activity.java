@@ -42,8 +42,9 @@ public class Inscription_Activity extends AppCompatActivity {
             public void onClick(View v) {
                 informations.put("mail",mail.getText().toString());
                 informations.put("nom",nom.getText().toString());
-                informations.put("prenom",prenom.getText().toString());
-                informations.put("mdp",mdp.getText().toString());
+                char character = prenom.getText().toString().charAt(0) ;
+                informations.put("prenom",prenom.getText().toString().replace(character,Character.toUpperCase(character)));
+                informations.put("password",mdp.getText().toString());
                 Connect connect = new Connect(Inscription_Activity.this,informations,"inscription",connnexion_info.IP,connnexion_info.WEB_SERVICE_FOLDER_INSCRIPTION);
                 connect.execute();
                 finish();

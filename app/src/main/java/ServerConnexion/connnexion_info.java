@@ -14,4 +14,5 @@ public class connnexion_info {
     public static final String WEB_SERVICE_FOLDER_MAKE_COMMENTAIRES = "/App_Web_service/makeComment.php";
     public static final String WEB_SERVICE_FOLDER_MAKE_PUBLICATION = "/App_Web_service/makePublication.php";
     public static final String WEB_SERVICE_FOLDER_MY_DISCUSSIONS = "/App_Web_service/myDiscussion.php";
+    public static final String WEB_SERVICE_FOLDER_MY_COMMENTS = "/App_Web_service/myComments.php";
 }

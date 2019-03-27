@@ -38,7 +38,8 @@
             android:parentActivityName=".Commentaires" />
         <activity android:name=".Publier" />
         <activity android:name=".ImageFull" />
-        <activity android:name=".MyDiscussions"></activity>
+        <activity android:name=".MyDiscussions" />
+        <activity android:name=".MyComments"></activity>
     </application>
 
 </manifest>
